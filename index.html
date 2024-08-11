@@ -8,5 +8,22 @@
 </head>
 <body>
   <p>Hello, World!</p>
+	<script src="//lite.payapp.kr/public/api/v2/payapp-lite.js"></script>
+<script>
+    PayApp.setDefault('userid',     'jungdalife');
+    PayApp.setDefault('shopname',   'test shop');
+    function payappPay(){
+        PayApp.setParam('goodname', 'test good');
+        PayApp.setParam('price', '1000');
+        PayApp.setParam('recvphone', '01000000000');
+        PayApp.setParam('smsuse', 'y');
+        PayApp.setParam('charset', 'utf-8');
+        PayApp.setParam('openpaytype', 'card');
+        PayApp.setParam('redirectpay', '1');
+        PayApp.setParam('skip_cstpage', 'y');
+        PayApp.payrequest();
+    }
+</script>
+<a href="#" onclick="payappPay();">결제하기</a>
 </body>
 </html>
